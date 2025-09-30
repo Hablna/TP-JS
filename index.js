@@ -1,5 +1,6 @@
-import {PlateForm} from './plateForm.js';
+//sur mon package.json j'ai mis "type": "module" pour pouvoir utiliser les imports et exports
 
+import {PlateForm} from './plateForm.js';
 const calendrierMatchs = [
     {
         id: 'LFL_KC_SLY',
@@ -40,5 +41,13 @@ const calendrierMatchs = [
 ];
 
 let pf = new PlateForm("Esports Hub");
+//chargement des matchs dans la variable match de la classe PlateForm
 pf.chargerMatchs(calendrierMatchs);
-console.log(pf.getMatchParJeu("Valor"));
+console.log(`---------Affichage du calendrier des matchs sur la plateforme ${pf.nom}---------`);
+pf.afficherCalendrier();
+console.log("---------Recherche des matchs par jeu Valorant ou valo ou val---------");
+console.log(pf.getMatchParJeu("Valora"));
+console.log("---------Recherche des matchs à risque---------");
+console.log(pf.getMatchRisques());
+console.log("---------Recherche du match par son ID LFL_KC_SLY---------");
+console.log(pf.getMatchById("LFL_KC_SLY"));
