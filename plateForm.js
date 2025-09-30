@@ -23,4 +23,13 @@ export class PlateForm{
         return this.matchs.filter(match => match.jeu.toLocaleLowerCase().startsWith(jeu.toLocaleLowerCase()))
     }
 
+    getMatchRisques() { //moins de 60% de chance pour le favori
+        return this.matchs.filter(match => {
+            const probaFavori = Math.max(match.probabiliteA, 1 - match.probabiliteA);
+            return probaFavori < 0.6;
+        });
+    }
+    getMatchById(id){
+        return this.matchs.find(match => match.id ===id);
+    }
 }
